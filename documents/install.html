@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typecho Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="unsemantic-grid-responsive.css" rel="stylesheet" media="screen">
+    <link href="reset.css" rel="stylesheet" media="screen">
+    <link href="style.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+	<div class="grid-container">
+		<h1 class="title-header"><a href="index.html">Typecho Documentation</a></h1>
+		<div class="list">
+			<ul class="menu-list">
+				<li class="name-header">How to install</li>
+				<p>It have just few differences from most blog script. Multi-database mode such as SQlite completely support make it simpler and faster. Do 3 steps in Installer, you can enjoy in Typecho powerful and completely experience within 5 minutes.</p>
+				<p>If you have problems during installing, you can go to our community or mail list to ask for help anytime.</p>
+				<section>
+					<h3>MySQL Install Mode</h3>
+					<p>Most of people use MySQL Database, so there is a simple installation instrution for MySQL, you can do like this in other database.</p>
+					<section>
+						<h4>Download the latest version and uncompress it</h4>
+						<p>Browse <a href="http://typecho.org/download">http://typecho.org/download</a> get latest stable version, after installing uncompress it, you will see these directories and files:</p>
+						<ol>
+							<li>admin directory</li>
+							<li>install directory</li>
+							<li>usr directory</li>
+							<li>var directory</li>
+							<li>license.txt file</li>
+							<li>index.php file</li>
+							<li>install.php file</li>
+						</ol>
+					</section>
+					<section>
+						<h4>Upload to specified directory on server</h4>
+						<p>Upload them to specified directory on server such as root directory or /blog, or the others you want.</p>
+					</section>
+					<section>
+						<h4>Browse the installation files directory</h4>
+						<p>After uploading, use browser to go into the directory, and you will see Typecho Installer. If you don't see red warning text at the top, your server fully supports Typecho, click to next step.</p>
+					</section>
+					<section>
+						<h4>Fill your database information</h4>
+						<p>Choose MySQL Original Function Adapter in the adapter, the next two fields don't need to change unless you have special needs. Go to the third fiels to fill your database information.</p>
+						<p class="caution">We don't suggest to change database prefix to make compatibility of upgrading and plugin</p>
+					</section>
+					<section>
+						<h4>Fill Website Administrator Information</h4>
+						<p>Installer will detect your url automatically, if you use subdomain such as blog.xx.com, please change by yourself. Username can be diy for you. E-Mail uses for Gravatar.</p>
+						For now, configation initizing is ready, if you don't make mistakes, click next, then finish Typecho Install in a minute.
+					</section>
+					<section>
+						<h4>Finish Installing</h4>
+						<p>In the install success page will show the login password generated automatically, please remember it and follow the tips to change. All things are done, have fun with Typecho! :)</p>
+						<p class="caution">If your initial password is lost, you can delete config.inc.php file automatically generated in the install directory, then choose to leave original data to reinstall</p>
+					</section>
+				</section>
+			</ul>
+		</div>
+		<p class="footer">This documentation is translated by <a href="mailto:t_om_2009@yeah.net">Jonnes</a>, <a href="http://docs.typecho.org/doku.php">the original Chinese documentation.</a></p>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typecho Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="unsemantic-grid-responsive.css" rel="stylesheet" media="screen">
+    <link href="reset.css" rel="stylesheet" media="screen">
+    <link href="style.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+	<div class="grid-container">
+		<h1 class="title-header"><a href="index.html">Typecho Documentation</a></h1>
+		<div class="list">
+			<ul class="menu-list">
+				<li class="name-header">Server Environment Settings</li>
+				<section>
+					<h3>"No input files specified" Error on Godaddy shared hosting</h3>
+					<p>This problem is always found on Godaddy hosting. And they are most strange hosting I have ever seen. First of all, it is because php doesn't know pathinfo parameter. Godaddy uses php-cgi mode (I think it make php4 and php5 compatible at the same time) to run php, so it makes some strange errors.</p>
+					Solution:
+					Find php5.ini in the root directory (Create this by yourself if you can't find it), add this following:
+					<pre>cgi.fix_pathinfo = 1</pre>
+				</section>
+				<section>
+					<h3>Can't login Admin Control Panel, shows "405, method not allowed"</h3>
+					<p>A Nginx inherent bug make this error. Typecho uses rewrited urls. It's not allowed to make post request to static urls before 0.7, so it does.</p>
+					Solution:
+					Upgrade your Nginx to 0.7 or higher
+				</section>
+				<section>
+					<h3>Can't login Admin Control Panel, shows "404, not found" when you click foreground links or login Admin Control Panel</h3>
+					<p>This is because Nginx configation don't support pathinfo, the details about php pathinfo can be searched on Internet.</p>
+					Solution:
+					Normally, the location setting of nginx.conf is also like this:
+					<pre>location ~ .*\.php$</pre>
+					To support pathinfo, change to this:
+					<pre>location ~ .*\.php(\/.*)*$</pre>
+					In some old-version php, maybe need to enable cgi.fix_pathinfo on php.ini
+					<pre>cgi.fix_pathinfo = 1</pre>
+				</section>
+				<section>
+					<h3>Can't enable rewrite, it's not successful to change in Admin Control Panel</h3>
+					<p>This is because rewrite on Nginx isn't configured.</p>
+					Solution:
+					Jump to the paragraph of server in nginx.conf, normally we suggest this following configation:
+					<pre>
+server {
+		listen          80;
+		server_name     yourdomain.com;
+		root            /home/yourdomain/www/;
+		index           index.html index.htm index.php;
+
+		if (!-e $request_filename) {
+			rewrite ^(.*)$ /index.php$1 last;
+		}
+
+		location ~ .*\.php(\/.*)*$ {
+		include fastcgi.conf;
+		fastcgi_pass  127.0.0.1:9000;
+		}
+
+		access_log logs/yourdomain.log combined;
+	}
+					</pre>
+					<p class="caution">"Yourdomain" in the code should be replaced your domain and directory</p>
+				</section>
+			</ul>
+		</div>
+		<p class="footer">This documentation is translated by <a href="mailto:t_om_2009@yeah.net">Jonnes</a>, <a href="http://docs.typecho.org/doku.php">the original Chinese documentation.</a></p>
+	</div>
+  </body>
+</html>
