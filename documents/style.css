@@ -1,0 +1,45 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+}
+
+a {
+	color: #428bca;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+title-header {
+	font-size: 35px;
+}
+
+ul, ol {
+	padding-left: 0;
+}
+
+.list li {
+	list-style: none;
+}
+
+.name-header {
+	font-weight: bold;
+	font-size: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+	margin-bottom: 5px;
+}
+
+.caution {
+	font-weight: bold;
+}
+
+.footer {
+	margin-top: 10px;
+	border-top: 1px solid #666;
+	padding-top: 10px;
+}
